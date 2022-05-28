@@ -1,0 +1,16 @@
+version: "3.7"
+
+services:
+    openvpn-socks:
+        image: jonoh/openvpn-socks
+        container_name: openvpn-socks
+        devices:
+            - "/dev/net/tun:/dev/net/tun"
+        volumes:
+            - ./secret/config.ovpn:$OPENVPN_CONFIG_FILE
+        ports:
+            - $SOCKS_PORT:$SOCKS_PORT
+        env_file:
+            - .env
+        cap_add:
+            - NET_ADMIN
