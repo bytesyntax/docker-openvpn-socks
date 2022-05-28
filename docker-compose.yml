@@ -7,7 +7,7 @@ services:
         devices:
             - "/dev/net/tun:/dev/net/tun"
         volumes:
-            - ./secret/config.ovpn:$OPENVPN_CONFIG_FILE
+            - ./config.ovpn:$OPENVPN_CONFIG_FILE
         ports:
             - $SOCKS_PORT:$SOCKS_PORT
         env_file:
