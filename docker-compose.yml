@@ -4,6 +4,7 @@ services:
     openvpn-socks:
         image: jonoh/openvpn-socks
         container_name: openvpn-socks
+        restart: unless-stopped
         devices:
             - "/dev/net/tun:/dev/net/tun"
         volumes:
